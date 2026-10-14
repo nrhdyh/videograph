@@ -1,1 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141512">
+  <meta name="description" content="An independent filmmaker's cinematic portfolio. Stories shaped by light, movement, and the moments in between. A concept portfolio with sample films.">
+  <title>Adrian Vale — Stories, in motion.</title>
+  <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/images/forest.jpg" as="image" fetchpriority="high">
+  <style>
+@font-face{font-family:Manrope;src:url('./assets/fonts/manrope.woff2') format('woff2');font-weight:200 800;font-display:swap}
+@font-face{font-family:Cormorant;src:url('./assets/fonts/cormorant.woff2') format('woff2');font-weight:300 700;font-display:swap}
+@font-face{font-family:Cormorant;src:url('./assets/fonts/cormorant-italic.woff2') format('woff2');font-weight:300 700;font-style:italic;font-display:swap}
+:root{--bg:#141512;--ink:#ece9df;--muted:#a5a79b;--gold:#c1ab7d;--line:rgba(236,233,223,.17);--pad:clamp(24px,6vw,104px);--serif:Cormorant,Georgia,'Times New Roman',serif;--sans:Manrope,Arial,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;-webkit-font-smoothing:antialiased}body::after{content:'';pointer-events:none;position:fixed;inset:0;z-index:100;opacity:.025;background-image:url('./assets/images/grain.svg')}
+::selection{background:var(--gold);color:var(--bg)}button,input,select,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}a{color:inherit;text-decoration:none}button{color:inherit}img,video{display:block;width:100%;object-fit:cover}button{border:0;background:none}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:400}em{font-weight:400;color:var(--gold)}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:7px}input:focus-visible,select:focus-visible,textarea:focus-visible{outline:1px solid var(--gold);outline-offset:3px}button[hidden],[hidden]{display:none!important}.skip-link{position:fixed;top:-80px;left:20px;background:var(--ink);color:var(--bg);padding:15px;z-index:200}.skip-link:focus{top:20px}.page-progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;z-index:110}
+.header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:30px var(--pad);transition:background .35s,color .35s,padding .35s;gap:20px}.header.scrolled{padding-top:21px;padding-bottom:21px;background:rgba(20,21,18,.91);backdrop-filter:blur(16px)}.wordmark{font-size:16px;font-weight:700;letter-spacing:.13em;line-height:1.1}.wordmark span{display:block;font-size:8px;font-weight:400;letter-spacing:.42em;margin-top:8px}.desktop-nav{display:flex;gap:37px;font-size:11px}.desktop-nav a{position:relative;padding:9px 0;color:#d9d9cf}.desktop-nav a::after{content:'';position:absolute;bottom:0;left:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s}.desktop-nav a:hover::after,.desktop-nav a[aria-current='location']::after{transform:scaleX(1)}.header-contact{font-size:11px;border:1px solid rgba(236,233,223,.3);border-radius:2px;padding:13px 18px;display:flex;gap:25px;align-items:center;transition:background .25s}.header-contact:hover{background:rgba(236,233,223,.1)}.header-contact span{color:var(--gold);font-size:18px}.menu-toggle,.mobile-nav{display:none}
+.hero-track{height:147svh;min-height:920px;position:relative}.hero{height:100svh;min-height:600px;position:sticky;top:0;overflow:hidden;--hero-progress:0}.hero-picture{position:absolute;inset:0;clip-path:inset(calc(var(--hero-progress)*6%) calc(var(--hero-progress)*3.5%) calc(var(--hero-progress)*6%));will-change:clip-path}.hero-video{height:100%;transform:scale(calc(1.035 + var(--hero-progress)*.055));filter:brightness(.72) saturate(.7)}.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,17,13,.23),rgba(12,17,13,.1) 45%,rgba(12,17,13,.72)),linear-gradient(90deg,rgba(12,17,13,.2),transparent 80%)}.hero-copy{position:absolute;left:var(--pad);top:50%;transform:translateY(calc(-43% - var(--hero-progress)*35px));opacity:calc(1 - var(--hero-progress)*.5);will-change:transform;animation:opening 1.5s ease both}.eyebrow{font:400 9px/1.7 var(--sans);letter-spacing:.15em;text-transform:uppercase}.hero-eyebrow{font-size:10px;letter-spacing:.19em;margin-bottom:31px;display:flex;align-items:center;gap:11px}.tiny-cross{color:var(--gold);font-size:20px}.hero h1{font-size:clamp(88px,11vw,168px);line-height:.84;letter-spacing:-.055em}.hero h1 em{display:inline-block;letter-spacing:-.04em}.hero-description{font-size:12px;line-height:1.9;margin-top:37px;color:#d0d4c7;letter-spacing:.01em}.hero-bottom{position:absolute;bottom:51px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;align-items:center;opacity:calc(1 - var(--hero-progress)*.8)}.reel-button{display:flex;gap:19px;align-items:center;text-align:left;padding:0;font-size:11px}.play-circle{display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(236,233,223,.45);border-radius:50%;padding-left:3px;font-size:11px;transition:background .3s,transform .3s}.reel-button:hover .play-circle{background:var(--ink);color:var(--bg);transform:scale(1.07)}.reel-button small{display:block;font-size:8px;font-weight:400;color:#b5baab;letter-spacing:.02em;margin-top:7px}.scroll-cue{display:flex;gap:15px;align-items:center;font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:#d2d4c8}.scroll-line{height:40px;width:1px;position:relative;background:rgba(236,233,223,.25);overflow:hidden}.scroll-line::after{content:'';position:absolute;height:50%;width:1px;left:0;background:var(--gold);animation:scroll-line 2.7s infinite}.motion-toggle{display:flex;gap:8px;align-items:center;color:#d2d4c8;font-size:9px;min-height:44px}.motion-toggle span{font-size:13px}.hero-frame-label{position:absolute;right:var(--pad);top:50%;writing-mode:vertical-rl;font-size:8px;letter-spacing:.18em;color:#cdd0c5}
+.section-pad{padding:105px var(--pad)}.section-marker{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:21px;font-size:8px;letter-spacing:.13em;text-transform:uppercase}.section-marker span:first-child{color:var(--gold)}.section-marker span:last-child{color:var(--muted);letter-spacing:.06em;text-transform:none;font-size:10px}.about{padding-top:28px;padding-bottom:128px}.about-grid{display:grid;grid-template-columns:.8fr 1fr;gap:clamp(55px,10vw,180px);max-width:1260px;margin:81px auto 0;align-items:center}.about-art{position:relative;max-width:420px}.portrait-frame{aspect-ratio:4/5;position:relative;padding:12px;border:1px solid var(--line)}.portrait-frame img{height:100%;filter:grayscale(1) brightness(.88);object-position:50% 50%}.frame-corner{position:absolute;width:24px;height:24px;border-left:1px solid var(--gold);border-bottom:1px solid var(--gold);bottom:-1px;left:-1px}.photo-caption{display:flex;justify-content:space-between;font-size:8px;color:var(--muted);margin-top:15px;letter-spacing:.07em}.photo-caption span:last-child{color:var(--gold);font-size:15px}.handwritten{position:absolute;right:-43px;bottom:65px;color:var(--gold);font-family:var(--serif);font-style:italic;font-size:24px;transform:rotate(-7deg)}.about-copy h2,.work-heading h2,.approach h2{font-size:clamp(60px,6.8vw,100px);line-height:.96;letter-spacing:-.035em;margin:22px 0 30px}.about-copy>.eyebrow{color:var(--gold)}.body-copy{font-size:13px;line-height:1.95;max-width:410px}.about-copy .body-copy+.body-copy{margin-top:19px}.muted{color:var(--muted)}.text-link{display:inline-flex;align-items:center;gap:40px;font-size:10px;padding:0 0 10px;border-bottom:1px solid var(--gold);transition:gap .25s}.text-link:hover{gap:48px}.text-link span{font-size:19px;color:var(--gold)}.about-copy>.text-link{margin-top:29px}.about-signoff{margin-top:40px;display:flex;align-items:center;gap:30px}.signature{font-family:var(--serif);font-style:italic;font-size:32px;color:var(--gold);transform:rotate(-4deg)}.about-signoff .eyebrow{font-size:8px;color:var(--muted)}
+.work{padding-top:30px;padding-bottom:112px}.work-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin:48px 0 49px}.work-heading h2{margin:0}.work-heading .body-copy{font-size:11px;margin-bottom:7px;padding-right:40px}.work-toolbar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:0 0 22px;margin-bottom:39px}.work-toolbar>.eyebrow{font-size:8px;color:var(--muted)}.filters{display:flex;gap:24px}.filter{padding:8px 0;color:var(--muted);font-size:9px;position:relative}.filter.active{color:var(--ink)}.filter::after{content:'';height:1px;position:absolute;bottom:0;left:0;right:0;background:var(--gold);transform:scaleX(0);transition:transform .25s}.filter.active::after,.filter:hover::after{transform:scaleX(1)}.film-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:50px 42px;align-items:start}.film-card{min-width:0}.film-card-small{margin-top:114px}.film-card-wide{grid-column:1/-1;width:86%;margin:22px auto 0}.film-image{position:relative;width:100%;display:block;padding:0;overflow:hidden;aspect-ratio:1.6;background:#242820}.film-card-small .film-image{aspect-ratio:1.1}.film-card-wide .film-image{aspect-ratio:2.4}.film-image img{height:100%;transition:transform 1s,filter 1s;filter:saturate(.7) brightness(.86)}.film-image:hover img{transform:scale(1.035);filter:saturate(.9) brightness(.95)}.preview-video{position:absolute;inset:0;height:100%;opacity:0;pointer-events:none;transition:opacity .5s;filter:saturate(.75) brightness(.8)}.film-image.previewing .preview-video{opacity:1}.film-image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),transparent 40%,rgba(0,0,0,.35));pointer-events:none}.film-number,.film-duration{position:absolute;z-index:2;font-size:8px;letter-spacing:.15em}.film-number{left:20px;top:20px}.film-duration{bottom:20px;right:20px}.film-play{position:absolute;z-index:3;display:grid;place-items:center;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.7);width:53px;height:53px;border-radius:50%;padding-left:3px;font-size:11px;transition:background .3s,transform .3s;backdrop-filter:blur(4px)}.film-image:hover .film-play{background:var(--ink);color:var(--bg);transform:translate(-50%,-50%) scale(1.12)}.film-info{display:flex;justify-content:space-between;align-items:center;margin-top:21px;gap:15px}.film-info .eyebrow{font-size:8px;color:var(--muted)}.film-info h3{font-size:32px;letter-spacing:-.02em;margin-top:6px}.film-arrow{font-size:26px;color:var(--gold);padding:7px}.film-overlay-title{position:absolute;left:32px;bottom:27px;font-family:var(--serif);font-size:clamp(60px,8vw,110px);line-height:1;letter-spacing:-.035em;z-index:2}.film-card-wide .film-play{left:auto;right:30px;top:50%;transform:translateY(-50%)}.film-card-wide .film-image:hover .film-play{transform:translateY(-50%) scale(1.12)}.sample-caption{margin-top:55px;text-align:center;font-size:8px;line-height:1.8;color:var(--muted)}.sample-caption button{font-size:8px;border-bottom:1px solid var(--line);padding:0 0 3px;margin-left:8px}.film-grid.filtered{grid-template-columns:1fr 1fr}.film-grid.filtered .film-card{width:100%;grid-column:auto;margin-top:0}.film-grid.filtered .film-image{aspect-ratio:1.6}
+.approach{background:#e5e1d5;color:#24281f;color-scheme:light;padding-top:71px;padding-bottom:39px;--line:rgba(36,40,31,.23);--muted:#5e6559}.approach em{color:#757e64}.approach .section-marker span:first-child{color:#667158}.approach-layout{display:grid;grid-template-columns:1fr 1fr;gap:100px;padding:72px 0 57px}.approach-intro>.eyebrow{color:#667158}.approach h2{margin-top:23px;margin-bottom:31px}.approach-intro .body-copy{max-width:320px;font-size:12px;color:#5e6559}.process-list{padding-top:30px}.process{border-bottom:1px solid var(--line);padding:30px 0}.process:first-child{border-top:1px solid var(--line)}.process summary{display:flex;align-items:center;cursor:pointer;list-style:none;gap:25px;font-family:var(--serif);font-size:34px;letter-spacing:-.02em;min-height:45px}.process summary::-webkit-details-marker{display:none}.process-number{font:9px var(--sans);color:#69705d;letter-spacing:.08em}.process-icon{margin-left:auto;color:#69705d;font-size:26px;transition:transform .3s}.process[open] .process-icon{transform:rotate(45deg)}.process-body{padding:20px 34px 3px;max-width:450px}.process-body p{font-size:11px;line-height:1.9;color:#5e6559}.process-body .eyebrow{display:block;font-size:8px;margin-top:23px;color:#667158}.aperture{position:relative;width:89px;height:89px;margin-top:44px;border:1px solid rgba(101,112,87,.35);border-radius:50%;overflow:hidden}.aperture span{position:absolute;left:0;top:0;width:89px;height:89px;border-top:1px solid rgba(101,112,87,.4);transform:rotate(calc(var(--n)*60deg)) translateY(28px)}.aperture span:nth-child(1){--n:0}.aperture span:nth-child(2){--n:1}.aperture span:nth-child(3){--n:2}.aperture span:nth-child(4){--n:3}.aperture span:nth-child(5){--n:4}.aperture span:nth-child(6){--n:5}.approach-footer{border-top:1px solid var(--line);padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:30px}.approach-footer .eyebrow{font-size:8px;color:#667158}.approach .text-link{border-color:#667158}.approach .text-link span{color:#667158}
+.closing-film{height:65svh;min-height:390px;max-height:760px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}.parallax-image{position:absolute;inset:-15% 0;height:130%;filter:saturate(.55) brightness(.52);object-position:center;will-change:transform}.closing-shade{position:absolute;inset:0;background:rgba(15,21,15,.15)}.closing-film p{font-family:var(--serif);font-size:clamp(55px,6.8vw,104px);line-height:.96;letter-spacing:-.025em;position:relative;z-index:1}.closing-film>.eyebrow{position:absolute;bottom:38px;left:0;right:0;color:#d0d3c4;font-size:8px}.contact{padding-top:60px;padding-bottom:30px}.contact-main{display:grid;grid-template-columns:1.4fr 1fr;align-items:center;gap:80px;padding:83px 0 99px}.contact-main .eyebrow{font-size:8px;color:var(--gold);margin-bottom:28px}.contact h2{font-size:clamp(82px,11vw,162px);line-height:.85;letter-spacing:-.05em}.contact-side{max-width:340px;justify-self:end;margin-top:20px}.contact-side .body-copy{font-size:12px}.contact-button{background:var(--gold);color:var(--bg);font-size:11px;display:flex;align-items:center;justify-content:space-between;gap:35px;padding:21px 24px;border:1px solid var(--gold);transition:background .3s,transform .3s}.contact-button:hover{background:#d9c598;transform:translateY(-2px)}.contact-side .contact-button{width:100%;margin-top:30px}.contact-button span{font-size:23px;line-height:.8}.contact-note{font-size:8px;color:var(--muted);margin-top:15px;text-align:center}footer{border-top:1px solid var(--line);padding:29px 0 0;display:flex;align-items:center;justify-content:space-between;gap:25px}footer .wordmark{font-size:12px}footer .wordmark span{font-size:6px}footer p{font-size:8px;color:var(--muted)}.back-top{font-size:8px;display:flex;gap:30px;align-items:center;color:var(--muted)}.back-top span{font-size:18px;color:var(--gold)}
+.reveal{opacity:1;transform:none}.js-motion .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1.15s cubic-bezier(.16,1,.3,1);transition-delay:var(--delay,0ms)}.js-motion .reveal.visible{opacity:1;transform:translateY(0)}.header.on-light.scrolled{background:rgba(229,225,213,.94);color:#24281f}.header.on-light .desktop-nav a{color:#24281f}.header.on-light .header-contact{border-color:rgba(36,40,31,.35)}.header.on-light .header-contact span{color:#667158}
+dialog{position:fixed;max-height:90svh;overflow:auto;border:1px solid var(--line);background:#181b16;color:var(--ink);padding:30px;box-shadow:0 30px 100px rgba(0,0,0,.5);width:min(1100px,90vw);border-radius:2px}dialog::backdrop{background:rgba(6,9,6,.89);backdrop-filter:blur(12px)}dialog[open]{animation:dialog-in .3s ease both}.dialog-top{display:flex;justify-content:space-between;gap:25px;align-items:start;margin-bottom:25px}.dialog-top .eyebrow{font-size:8px;color:var(--gold);margin-bottom:7px}.dialog-top h2{font-size:36px;letter-spacing:-.025em}.dialog-close{width:44px;height:44px;border:1px solid var(--line);font-size:18px;flex-shrink:0}.dialog-close:hover{background:rgba(255,255,255,.06)}#film-player{max-height:64svh;aspect-ratio:16/9;background:#090b09;object-fit:contain}.dialog-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-top:20px;font-size:10px;color:var(--muted)}.dialog-bottom .eyebrow{font-size:8px;color:var(--gold)}.player-status{font-size:11px;color:var(--gold);margin-top:10px}.player-status:empty{display:none}.enquiry-dialog{width:min(680px,92vw);padding:35px}.enquiry-intro{font-size:12px;color:var(--muted);margin:-8px 0 26px}.field-pair{display:grid;grid-template-columns:1fr 1fr;gap:23px}form label{display:block;font-size:9px;letter-spacing:.03em;margin-bottom:21px}input,textarea,select{width:100%;border:1px solid var(--line);background:#20231d;color:var(--ink);padding:13px;font-size:11px;margin-top:9px;border-radius:0}input::placeholder,textarea::placeholder{color:#929889;opacity:1}textarea{resize:vertical;line-height:1.7}select{min-height:44px}.form-note{font-size:9px;color:var(--muted);line-height:1.8;max-width:430px;margin-bottom:22px}form .contact-button{width:100%}#enquiry-result .eyebrow{color:var(--gold);font-size:9px}#enquiry-output{margin-top:15px}.result-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:20px}.result-actions .text-link{font-size:9px}#copy-status{color:var(--gold);font-size:10px;margin-top:18px}.credits-dialog{width:min(680px,92vw)}.credits-dialog>p{font-size:12px;line-height:1.9;margin-top:18px}.credits-dialog li{font-size:12px;line-height:2.4}.credits-dialog a{border-bottom:1px solid var(--line)}.noscript-note{padding:25px var(--pad);font-size:12px;color:var(--gold)}
+@keyframes opening{from{opacity:0;translate:0 20px}to{opacity:1;translate:0 0}}@keyframes scroll-line{0%{top:-50%}100%{top:110%}}@keyframes dialog-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1700px){.section-pad{padding-left:max(var(--pad),calc((100vw - 1460px)/2));padding-right:max(var(--pad),calc((100vw - 1460px)/2))}}
+@media(max-width:1000px){.desktop-nav{gap:20px}.header{padding-top:23px}.hero h1{font-size:clamp(90px,13vw,135px)}.hero-frame-label{display:none}.about-grid{gap:60px}.about-copy h2,.work-heading h2,.approach h2{font-size:68px}.approach-layout{gap:60px}.process summary{font-size:29px;gap:18px}.work-heading .body-copy{padding:0}.film-card-small{margin-top:85px}.film-info h3{font-size:27px}.contact-main{gap:40px}.scroll-cue{font-size:7px}}
+@media(max-width:700px){:root{--pad:24px}.header{padding:21px var(--pad)}.wordmark{font-size:12px}.wordmark span{font-size:6px;margin-top:7px}.desktop-nav,.header-contact{display:none}.menu-toggle{display:flex;flex-direction:column;justify-content:center;gap:7px;width:44px;height:44px;padding:10px}.menu-toggle span{height:1px;width:24px;background:var(--ink);transition:transform .3s}.header.on-light .menu-toggle span{background:#24281f}.menu-toggle[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}.mobile-nav{display:flex;position:absolute;left:0;right:0;top:86px;padding:28px var(--pad) 38px;background:#181b16;color:var(--ink);border-bottom:1px solid var(--line);flex-direction:column;gap:20px;box-shadow:0 20px 50px rgba(0,0,0,.2)}.mobile-nav a{font-family:var(--serif);font-size:31px;display:flex;justify-content:space-between;align-items:center}.mobile-nav span{font:9px var(--sans);color:var(--gold)}.hero-track{height:125svh;min-height:760px}.hero{min-height:580px}.hero-eyebrow{font-size:7px;letter-spacing:.1em;margin-bottom:25px;gap:8px}.hero-copy{top:48%}.hero h1{font-size:clamp(79px,17.7vw,124px)}.hero-description{font-size:11px;margin-top:30px}.hero-bottom{bottom:35px;flex-wrap:wrap;row-gap:28px}.reel-button{font-size:10px;gap:13px}.play-circle{width:45px;height:45px}.reel-button small{font-size:7px}.scroll-cue{order:3;width:100%;justify-content:center;font-size:7px}.scroll-line{height:27px}.motion-toggle{font-size:8px}.section-pad{padding:65px var(--pad)}.section-marker{padding-top:17px;font-size:7px;gap:18px}.section-marker span:last-child{font-size:8px;max-width:170px;text-align:right;line-height:1.7}.about{padding-top:16px;padding-bottom:72px}.about-grid{display:flex;flex-direction:column;gap:45px;margin-top:43px;align-items:stretch}.about-art{width:72%;max-width:300px;margin:auto}.handwritten{font-size:21px;right:-35px;bottom:46px}.photo-caption{font-size:7px}.about-copy h2,.work-heading h2,.approach h2{font-size:64px}.about-copy>.eyebrow{font-size:8px}.body-copy{font-size:12px}.about-signoff{margin-top:33px}.work{padding-top:25px}.work-heading{display:block;margin-top:39px;margin-bottom:35px}.work-heading .body-copy{margin-top:25px;font-size:11px}.work-toolbar{align-items:start;gap:15px;flex-direction:column;margin-bottom:25px;padding-bottom:17px}.filters{width:100%;justify-content:space-between;gap:8px}.filter{font-size:8px;min-height:37px}.film-grid,.film-grid.filtered{display:block}.film-card-small,.film-card-wide,.film-card-large,.film-grid.filtered .film-card{margin-top:35px;width:100%}.film-card:first-child{margin-top:0}.film-image,.film-card-small .film-image,.film-grid.filtered .film-image{aspect-ratio:1.6}.film-card-wide .film-image{aspect-ratio:1.6}.film-number{top:15px;left:15px}.film-duration{bottom:15px;right:15px}.film-overlay-title{font-size:63px;left:20px;bottom:23px}.film-card-wide .film-play{right:18px}.film-info{margin-top:17px}.film-info h3{font-size:27px}.film-info .eyebrow{font-size:7px}.sample-caption{margin-top:38px;font-size:7px}.sample-caption button{font-size:7px}.approach{padding-top:42px;padding-bottom:30px}.approach-layout{display:block;padding:42px 0 32px}.approach-intro h2{margin-top:18px}.aperture{width:69px;height:69px;margin-top:30px}.aperture span{width:69px;height:69px;transform:rotate(calc(var(--n)*60deg)) translateY(22px)}.process-list{padding-top:39px}.process{padding:23px 0}.process summary{font-size:29px;gap:22px}.process-body{padding:17px 30px 3px}.approach-footer{display:block;padding-top:22px}.approach-footer .text-link{margin-top:19px}.closing-film{height:52svh;min-height:340px}.closing-film p{font-size:54px}.closing-film>.eyebrow{font-size:7px;bottom:30px}.contact{padding-top:36px;padding-bottom:24px}.contact-main{display:block;padding:50px 0 55px}.contact-main .eyebrow{font-size:7px;margin-bottom:24px}.contact h2{font-size:96px}.contact-side{margin-top:33px;max-width:100%}.contact-side .body-copy{max-width:340px}.contact-side .contact-button{margin-top:25px}.contact-note{text-align:left;font-size:8px}footer{flex-wrap:wrap;padding-top:24px;gap:25px}footer .wordmark{font-size:11px}footer p{font-size:7px}footer .back-top{font-size:8px;flex-basis:100%;justify-content:space-between;border-top:1px solid var(--line);padding-top:17px}dialog{padding:19px;width:94vw;max-height:92svh}.dialog-top h2{font-size:29px}.dialog-top{gap:15px;margin-bottom:20px}.dialog-close{width:38px;height:38px}.dialog-bottom{font-size:9px;align-items:start}.dialog-bottom .eyebrow{font-size:6px;white-space:nowrap}.enquiry-dialog{padding:24px;width:94vw}.field-pair{grid-template-columns:1fr;gap:0}.credits-dialog li{font-size:11px}.credits-dialog>p{font-size:11px}.result-actions{gap:18px}.result-actions .contact-button{width:100%}}
+@media(max-width:360px){.hero h1{font-size:74px}.hero-eyebrow{font-size:6px}.reel-button small{font-size:6px}.motion-toggle{font-size:7px}.hero-bottom{left:20px;right:20px}.contact h2{font-size:82px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js-motion .reveal{opacity:1;transform:none}.hero-track{height:100svh;min-height:580px}.hero-picture{clip-path:none}.hero-video{transform:none}.hero-copy{transform:translateY(-43%);opacity:1}.hero-bottom{opacity:1}.parallax-image{transform:none!important}}
+
+  </style>
+
+  <script type="application/json" id="font-licenses">{"cormorant-OFL.txt": "Copyright 2015 the Cormorant Project Authors (github.com/CatharsisFonts/Cormorant)\n\nThis Font Software is licensed under the SIL Open Font License, Version 1.1.\nThis license is copied below, and is also available with a FAQ at:\nhttps://scripts.sil.org/OFL\n\n\n-----------------------------------------------------------\nSIL OPEN FONT LICENSE Version 1.1 - 26 February 2007\n-----------------------------------------------------------\n\nPREAMBLE\nThe goals of the Open Font License (OFL) are to stimulate worldwide\ndevelopment of collaborative font projects, to support the font creation\nefforts of academic and linguistic communities, and to provide a free and\nopen framework in which fonts may be shared and improved in partnership\nwith others.\n\nThe OFL allows the licensed fonts to be used, studied, modified and\nredistributed freely as long as they are not sold by themselves. The\nfonts, including any derivative works, can be bundled, embedded, \nredistributed and/or sold with any software provided that any reserved\nnames are not used by derivative works. The fonts and derivatives,\nhowever, cannot be released under any other type of license. The\nrequirement for fonts to remain under this license does not apply\nto any document created using the fonts or their derivatives.\n\nDEFINITIONS\n\"Font Software\" refers to the set of files released by the Copyright\nHolder(s) under this license and clearly marked as such. This may\ninclude source files, build scripts and documentation.\n\n\"Reserved Font Name\" refers to any names specified as such after the\ncopyright statement(s).\n\n\"Original Version\" refers to the collection of Font Software components as\ndistributed by the Copyright Holder(s).\n\n\"Modified Version\" refers to any derivative made by adding to, deleting,\nor substituting -- in part or in whole -- any of the components of the\nOriginal Version, by changing formats or by porting the Font Software to a\nnew environment.\n\n\"Author\" refers to any designer, engineer, programmer, technical\nwriter or other person who contributed to the Font Software.\n\nPERMISSION & CONDITIONS\nPermission is hereby granted, free of charge, to any person obtaining\na copy of the Font Software, to use, study, copy, merge, embed, modify,\nredistribute, and sell modified and unmodified copies of the Font\nSoftware, subject to the following conditions:\n\n1) Neither the Font Software nor any of its individual components,\nin Original or Modified Versions, may be sold by itself.\n\n2) Original or Modified Versions of the Font Software may be bundled,\nredistributed and/or sold with any software, provided that each copy\ncontains the above copyright notice and this license. These can be\nincluded either as stand-alone text files, human-readable headers or\nin the appropriate machine-readable metadata fields within text or\nbinary files as long as those fields can be easily viewed by the user.\n\n3) No Modified Version of the Font Software may use the Reserved Font\nName(s) unless explicit written permission is granted by the corresponding\nCopyright Holder. This restriction only applies to the primary font name as\npresented to the users.\n\n4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font\nSoftware shall not be used to promote, endorse or advertise any\nModified Version, except to acknowledge the contribution(s) of the\nCopyright Holder(s) and the Author(s) or with their explicit written\npermission.\n\n5) The Font Software, modified or unmodified, in part or in whole,\nmust be distributed entirely under this license, and must not be\ndistributed under any other license. The requirement for fonts to\nremain under this license does not apply to any document created\nusing the Font Software.\n\nTERMINATION\nThis license becomes null and void if any of the above conditions are\nnot met.\n\nDISCLAIMER\nTHE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\nOF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE\nCOPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nINCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL\nDAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM\nOTHER DEALINGS IN THE FONT SOFTWARE.\n", "manrope-OFL.txt": "Copyright 2018 The Manrope Project Authors (https://github.com/googlefonts/manrope)\n\nThis Font Software is licensed under the SIL Open Font License, Version 1.1.\nThis license is copied below, and is also available with a FAQ at:\nhttp://scripts.sil.org/OFL\n\n\n-----------------------------------------------------------\nSIL OPEN FONT LICENSE Version 1.1 - 26 February 2007\n-----------------------------------------------------------\n\nPREAMBLE\nThe goals of the Open Font License (OFL) are to stimulate worldwide\ndevelopment of collaborative font projects, to support the font creation\nefforts of academic and linguistic communities, and to provide a free and\nopen framework in which fonts may be shared and improved in partnership\nwith others.\n\nThe OFL allows the licensed fonts to be used, studied, modified and\nredistributed freely as long as they are not sold by themselves. The\nfonts, including any derivative works, can be bundled, embedded, \nredistributed and/or sold with any software provided that any reserved\nnames are not used by derivative works. The fonts and derivatives,\nhowever, cannot be released under any other type of license. The\nrequirement for fonts to remain under this license does not apply\nto any document created using the fonts or their derivatives.\n\nDEFINITIONS\n\"Font Software\" refers to the set of files released by the Copyright\nHolder(s) under this license and clearly marked as such. This may\ninclude source files, build scripts and documentation.\n\n\"Reserved Font Name\" refers to any names specified as such after the\ncopyright statement(s).\n\n\"Original Version\" refers to the collection of Font Software components as\ndistributed by the Copyright Holder(s).\n\n\"Modified Version\" refers to any derivative made by adding to, deleting,\nor substituting -- in part or in whole -- any of the components of the\nOriginal Version, by changing formats or by porting the Font Software to a\nnew environment.\n\n\"Author\" refers to any designer, engineer, programmer, technical\nwriter or other person who contributed to the Font Software.\n\nPERMISSION & CONDITIONS\nPermission is hereby granted, free of charge, to any person obtaining\na copy of the Font Software, to use, study, copy, merge, embed, modify,\nredistribute, and sell modified and unmodified copies of the Font\nSoftware, subject to the following conditions:\n\n1) Neither the Font Software nor any of its individual components,\nin Original or Modified Versions, may be sold by itself.\n\n2) Original or Modified Versions of the Font Software may be bundled,\nredistributed and/or sold with any software, provided that each copy\ncontains the above copyright notice and this license. These can be\nincluded either as stand-alone text files, human-readable headers or\nin the appropriate machine-readable metadata fields within text or\nbinary files as long as those fields can be easily viewed by the user.\n\n3) No Modified Version of the Font Software may use the Reserved Font\nName(s) unless explicit written permission is granted by the corresponding\nCopyright Holder. This restriction only applies to the primary font name as\npresented to the users.\n\n4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font\nSoftware shall not be used to promote, endorse or advertise any\nModified Version, except to acknowledge the contribution(s) of the\nCopyright Holder(s) and the Author(s) or with their explicit written\npermission.\n\n5) The Font Software, modified or unmodified, in part or in whole,\nmust be distributed entirely under this license, and must not be\ndistributed under any other license. The requirement for fonts to\nremain under this license does not apply to any document created\nusing the Font Software.\n\nTERMINATION\nThis license becomes null and void if any of the above conditions are\nnot met.\n\nDISCLAIMER\nTHE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\nOF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE\nCOPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nINCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL\nDAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM\nOTHER DEALINGS IN THE FONT SOFTWARE.\n"}</script>
+</head>
+<body>
+  <a class="skip-link" href="#about">Skip to content</a>
+  <div class="page-progress" aria-hidden="true"></div>
+  <header class="header" id="header">
+    <a class="wordmark" href="#home" aria-label="Adrian Vale, home">ADRIAN VALE<span>FILMMAKER</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#work">The films</a><a href="#about">The person</a><a href="#approach">The approach</a>
+    </nav>
+    <a class="header-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="#work">The films <span>01</span></a><a href="#about">The person <span>02</span></a><a href="#approach">The approach <span>03</span></a><a href="#contact">Let’s talk <span>04</span></a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-track" id="home" aria-label="Opening film">
+      <div class="hero">
+        <div class="hero-picture">
+          <video class="hero-video" id="hero-video" poster="./assets/images/forest.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="./assets/videos/forest.mp4" type="video/mp4"></video>
+          <div class="hero-shade"></div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow hero-eyebrow"><span class="tiny-cross" aria-hidden="true">+</span> Independent filmmaker & visual storyteller</p>
+          <h1>Some stories<br>are <em>felt.</em></h1>
+          <p class="hero-description">Films that linger.<br>Long after the last frame.</p>
+        </div>
+        <div class="hero-bottom">
+          <button class="reel-button" data-film="reel"><span class="play-circle" aria-hidden="true">▶</span><span>Watch the visual reel<small>00:24 &nbsp; / &nbsp; A glimpse into my world</small></span></button>
+          <a class="scroll-cue" href="#about"><span class="scroll-line" aria-hidden="true"></span>Scroll to feel the story</a>
+          <button id="motion-toggle" class="motion-toggle" aria-label="Pause background film"><span aria-hidden="true">Ⅱ</span> Pause film</button>
+        </div>
+        <div class="hero-frame-label" aria-hidden="true">01 / A MOMENT IN MOTION</div>
+      </div>
+    </section>
+
+    <section class="about section-pad" id="about">
+      <div class="section-marker reveal"><span>01 — THE PERSON</span><span>A little behind the lens</span></div>
+      <div class="about-grid">
+        <div class="about-art reveal">
+          <div class="portrait-frame"><img src="./assets/images/camera.jpg" alt="A close view of a filmmaker’s camera" width="640" height="800" loading="lazy"><span class="frame-corner" aria-hidden="true"></span></div>
+          <div class="photo-caption"><span>Light. Patience. Perspective.</span><span aria-hidden="true">↗</span></div>
+          <p class="handwritten" aria-hidden="true">Always looking closer.</p>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow reveal">Hello, I’m Adrian.</p>
+          <h2 class="reveal">Drawn to the<br><em>in-between.</em></h2>
+          <p class="body-copy reveal">The breath before a vow. The light before it disappears. The quiet moments that say more than words ever could.</p>
+          <p class="body-copy muted reveal">My approach is simple: be present, look closely, and let the story lead. I make cinematic films with a human heart — shaped by atmosphere, honest emotion, and a little wonder.</p>
+          <a class="text-link reveal" href="#work">Step into my work <span aria-hidden="true">↗</span></a>
+          <div class="about-signoff reveal"><span class="signature">Adrian Vale</span><span class="eyebrow">Stories, in motion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section-pad" id="work">
+      <div class="section-marker reveal"><span>02 — SELECTED FILMS</span><span>A few worlds to get lost in</span></div>
+      <div class="work-heading"><h2 class="reveal">A feeling.<br><em>A frame. A film.</em></h2><p class="body-copy muted reveal">Different stories. The same intention.<br>To make you feel something.</p></div>
+      <div class="work-toolbar reveal"><span class="eyebrow">The collection / <span id="film-count">03</span></span><div class="filters" role="group" aria-label="Filter films"><button class="filter active" data-filter="all" aria-pressed="true">All films</button><button class="filter" data-filter="travel" aria-pressed="false">Travel</button><button class="filter" data-filter="narrative" aria-pressed="false">Narrative</button><button class="filter" data-filter="love" aria-pressed="false">Love stories</button></div></div>
+      <div class="film-grid">
+        <article class="film-card film-card-large reveal" data-category="travel">
+          <button class="film-image" data-film="forest" aria-label="Watch The quiet between, a travel film study">
+            <img src="./assets/images/forest.jpg" alt="Sunlight falling over a misty mountain forest" width="1280" height="720" loading="lazy">
+            <video class="preview-video" data-src="./assets/videos/forest.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="film-number">01</span><span class="film-play" aria-hidden="true">▶</span><span class="film-duration">00:12</span>
+          </button>
+          <div class="film-info"><div><p class="eyebrow">Travel / Film study</p><h3>The quiet between</h3></div><button class="film-arrow" data-film="forest" aria-label="Play The quiet between">↗</button></div>
+        </article>
+        <article class="film-card film-card-small reveal" data-category="narrative">
+          <button class="film-image" data-film="city" aria-label="Watch After the blue hour, a narrative film study">
+            <img src="./assets/images/city.jpg" alt="An illuminated city unfolding after dark" width="1280" height="720" loading="lazy">
+            <video class="preview-video" data-src="./assets/videos/city.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="film-number">02</span><span class="film-play" aria-hidden="true">▶</span><span class="film-duration">00:12</span>
+          </button>
+          <div class="film-info"><div><p class="eyebrow">Narrative / Film study</p><h3>After the blue hour</h3></div><button class="film-arrow" data-film="city" aria-label="Play After the blue hour">↗</button></div>
+        </article>
+        <article class="film-card film-card-wide reveal" data-category="love">
+          <button class="film-image" data-film="love" aria-label="Watch Just us, a love story film study">
+            <img src="./assets/images/love.jpg" alt="A newlywed couple walking together in a sunlit garden" width="1280" height="720" loading="lazy">
+            <video class="preview-video" data-src="./assets/videos/love.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="film-number">03</span><span class="film-play" aria-hidden="true">▶</span><span class="film-duration">00:12</span>
+            <span class="film-overlay-title" aria-hidden="true">Just <em>us.</em></span>
+          </button>
+          <div class="film-info"><div><p class="eyebrow">Love stories / Film study</p><h3>When everything else fades away</h3></div><button class="film-arrow" data-film="love" aria-label="Play Just us">↗</button></div>
+        </article>
+      </div>
+      <p class="sample-caption">A concept collection, illustrated with licensed stock footage. <button id="credits-open">Film credits ↗</button></p>
+    </section>
+
+    <section class="approach section-pad" id="approach">
+      <div class="section-marker reveal"><span>03 — THE APPROACH</span><span>Intentional, from first thought to final frame</span></div>
+      <div class="approach-layout">
+        <div class="approach-intro"><p class="eyebrow reveal">More than beautiful pictures.</p><h2 class="reveal">The story<br>comes <em>first.</em></h2><p class="body-copy reveal">A film should feel like you. Your world, your people, your point of view. Here’s where we begin.</p><div class="aperture" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        <div class="process-list">
+          <details class="process reveal" open><summary><span class="process-number">01</span><span>Find the feeling.</span><span class="process-icon" aria-hidden="true">+</span></summary><div class="process-body"><p>We start with a conversation. What matters to you? What should someone feel? Together, we find the heart of the story before the camera ever rolls.</p><span class="eyebrow">Listening · Story · Creative direction</span></div></details>
+          <details class="process reveal"><summary><span class="process-number">02</span><span>Be in the moment.</span><span class="process-icon" aria-hidden="true">+</span></summary><div class="process-body"><p>We make space for real moments. Thoughtful composition, natural movement, and a calm presence bring the story to life without getting in its way.</p><span class="eyebrow">Cinematography · Light · Connection</span></div></details>
+          <details class="process reveal"><summary><span class="process-number">03</span><span>Let it linger.</span><span class="process-icon" aria-hidden="true">+</span></summary><div class="process-body"><p>In the edit, every cut has a purpose. Colour, rhythm, and sound come together to turn a collection of moments into a film that stays with you.</p><span class="eyebrow">Editing · Colour · Sound</span></div></details>
+        </div>
+      </div>
+      <div class="approach-footer reveal"><span class="eyebrow">For people, places & stories worth telling.</span><a class="text-link" href="#contact">Let’s find your story <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="closing-film" aria-label="A quiet cinematic interlude"><img src="./assets/images/forest-closing.jpg" alt="Soft morning mist drifting over a forest" width="1600" height="900" loading="lazy" class="parallax-image"><div class="closing-shade"></div><p class="reveal">Every story starts<br>with <em>a little wonder.</em></p><span class="eyebrow">Yours could be next.</span></section>
+
+    <section class="contact section-pad" id="contact">
+      <div class="section-marker reveal"><span>04 — THE NEXT CHAPTER</span><span>From an idea to something unforgettable</span></div>
+      <div class="contact-main"><div><p class="eyebrow reveal">A place. A person. A possibility.</p><h2 class="reveal">What’s <em>your</em><br>story?</h2></div><div class="contact-side reveal"><p class="body-copy muted">A love story, a new perspective, or an idea you can’t quite put into words. Let’s see where it takes us.</p><button class="contact-button" id="enquiry-open">Start a conversation <span aria-hidden="true">↗</span></button><p class="contact-note">Big ideas. Small moments. All welcome.</p></div></div>
+      <footer><a class="wordmark" href="#home">ADRIAN VALE<span>FILMMAKER</span></a><p>© <span id="year">2026</span> · Concept portfolio</p><a class="back-top" href="#home">Back to the beginning <span aria-hidden="true">↑</span></a></footer>
+    </section>
+  </main>
+
+  <dialog class="film-dialog" id="film-dialog" aria-labelledby="film-dialog-title">
+    <div class="dialog-top"><div><p class="eyebrow" id="film-dialog-category">Visual reel</p><h2 id="film-dialog-title">A glimpse into my world</h2></div><button class="dialog-close" data-close="film-dialog" aria-label="Close film">✕</button></div>
+    <video id="film-player" controls playsinline preload="none" aria-label="Film player"></video>
+    <div class="dialog-bottom"><p id="film-dialog-description">A concept reel with licensed footage.</p><span class="eyebrow">Take a moment.</span></div>
+    <p class="player-status" id="player-status" role="status"></p>
+  </dialog>
+
+  <dialog class="enquiry-dialog" id="enquiry-dialog" aria-labelledby="enquiry-title">
+    <div class="dialog-top"><div><p class="eyebrow">The first frame</p><h2 id="enquiry-title">Tell me a little.</h2></div><button class="dialog-close" data-close="enquiry-dialog" aria-label="Close enquiry">✕</button></div>
+    <p class="enquiry-intro">A few details to give your idea a beginning.</p>
+    <form id="enquiry-form">
+      <div class="field-pair"><label>Your name<input name="name" autocomplete="name" required maxlength="100" placeholder="How should I call you?"></label><label>Email address<input name="email" type="email" autocomplete="email" required maxlength="160" placeholder="you@example.com"></label></div>
+      <div class="field-pair"><label>Your story<select name="type"><option>Love story / Wedding</option><option>Brand / Commercial</option><option>Travel / Documentary</option><option>Something different</option></select></label><label>Date or timeframe<input name="date" maxlength="100" placeholder="A date, a month, or just an idea"></label></div>
+      <label>What do you have in mind?<textarea name="message" rows="4" required maxlength="3000" placeholder="The feeling, the place, the idea. I’m listening."></textarea></label>
+      <p class="form-note">In this concept preview, you can copy or download your enquiry. Nothing is sent.</p>
+      <button class="contact-button" type="submit">Prepare my enquiry <span aria-hidden="true">↗</span></button>
+    </form>
+    <div id="enquiry-result" hidden><p class="eyebrow">Your idea, ready to share.</p><textarea id="enquiry-output" readonly aria-label="Prepared enquiry" rows="8"></textarea><div class="result-actions"><button class="contact-button" id="copy-enquiry">Copy enquiry <span aria-hidden="true">↗</span></button><button class="text-link" id="download-enquiry">Download .txt ↓</button><button class="text-link" id="edit-enquiry">Edit details</button></div><p id="copy-status" role="status"></p></div>
+  </dialog>
+
+  <dialog class="credits-dialog" id="credits-dialog" aria-labelledby="credits-title"><div class="dialog-top"><div><p class="eyebrow">The source frames</p><h2 id="credits-title">Film credits.</h2></div><button class="dialog-close" data-close="credits-dialog" aria-label="Close credits">✕</button></div><p>This is an illustrative portfolio for the sample identity Adrian Vale. The film studies are edited from stock clips and are not original client projects.</p><ul><li><a href="https://mixkit.co/free-stock-video/forest-covered-by-mist-at-sunrise-from-the-heights-28339/" target="_blank" rel="noopener noreferrer">Misty forest at sunrise — Mixkit ↗</a></li><li><a href="https://mixkit.co/free-stock-video/aerial-view-of-a-city-at-night-3220/" target="_blank" rel="noopener noreferrer">City at night — Mixkit ↗</a></li><li><a href="https://mixkit.co/free-stock-video/newlyweds-walking-through-a-garden-40584/" target="_blank" rel="noopener noreferrer">Newlyweds in a garden — Mixkit ↗</a></li><li><a href="https://mixkit.co/free-stock-video/close-shot-on-a-dslr-camera-44076/" target="_blank" rel="noopener noreferrer">Camera close-up — Mixkit ↗</a></li></ul><p class="muted">Clips used under the Mixkit Stock Video Free License. The visual reel has no audio.</p></dialog>
+  <noscript><style>.reveal{opacity:1;transform:none}.hero-track{height:100svh}</style><p class="noscript-note">JavaScript enables film playback dialogs and enquiries. You can still explore the page and <a href="./assets/videos/visual-reel.mp4">watch the visual reel</a>.</p></noscript>
+  <script>
+(() => {
+  'use strict';
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const hero = $('.hero');
+  const heroTrack = $('.hero-track');
+  const heroVideo = $('#hero-video');
+  const header = $('#header');
+  const player = $('#film-player');
+  const filmDialog = $('#film-dialog');
+  let motionPaused = reducedMotion.matches;
+  let heroVisible = true;
+  let frameRequested = false;
+  let heroProgress = 0;
+  let currentTrigger = null;
+
+  const films = {
+    reel: {src:'./assets/videos/visual-reel.mp4',poster:'./assets/images/forest.jpg',title:'A glimpse into my world',category:'Visual reel / 00:24',description:'Three moods, one visual journey. Sample stock footage; no audio.'},
+    forest: {src:'./assets/videos/forest.mp4',poster:'./assets/images/forest.jpg',title:'The quiet between',category:'Travel / Film study',description:'A slow passage through a misty forest at sunrise. An illustrative stock-footage study.'},
+    city: {src:'./assets/videos/city.mp4',poster:'./assets/images/city.jpg',title:'After the blue hour',category:'Narrative / Film study',description:'A city finding its rhythm after dark. An illustrative stock-footage study.'},
+    love: {src:'./assets/videos/love.mp4',poster:'./assets/images/love.jpg',title:'Just us',category:'Love stories / Film study',description:'A moment together, with the world falling away. An illustrative stock-footage study.'}
+  };
+
+  if (!reducedMotion.matches && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-motion');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.08, rootMargin:'0px 0px -25px 0px'});
+    $$('.reveal').forEach(element => revealObserver.observe(element));
+    $$('.about-copy .reveal').forEach((element, index) => element.style.setProperty('--delay', `${Math.min(index * 35, 160)}ms`));
+  }
+
+  function updateMotionButton() {
+    $('#motion-toggle').innerHTML = motionPaused ? '<span aria-hidden="true">▶</span> Play film' : '<span aria-hidden="true">Ⅱ</span> Pause film';
+    $('#motion-toggle').setAttribute('aria-label',motionPaused ? 'Play background film' : 'Pause background film');
+  }
+  function manageHeroPlayback() {
+    if (motionPaused || !heroVisible || document.hidden || $$('dialog[open]').length) heroVideo.pause();
+    else heroVideo.play().catch(() => { motionPaused = true; updateMotionButton(); });
+  }
+  heroVideo.muted = true;
+  if (reducedMotion.matches) { heroVideo.removeAttribute('autoplay'); heroVideo.pause(); }
+  updateMotionButton();
+  $('#motion-toggle').addEventListener('click', () => { motionPaused = !motionPaused; updateMotionButton(); manageHeroPlayback(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => { heroVisible = entries[0].isIntersecting; manageHeroPlayback(); }, {threshold:0.05}).observe(hero);
+  }
+  document.addEventListener('visibilitychange', () => { manageHeroPlayback(); if (document.hidden) $$('.preview-video').forEach(video => video.pause()); });
+  reducedMotion.addEventListener('change', () => {
+    motionPaused = reducedMotion.matches;
+    document.documentElement.classList.toggle('js-motion', !reducedMotion.matches && 'IntersectionObserver' in window);
+    $$('.reveal').forEach(el => el.classList.add('visible'));
+    updateMotionButton(); manageHeroPlayback(); requestFrame();
+  });
+
+  function updateScroll() {
+    frameRequested = false;
+    const rect = heroTrack.getBoundingClientRect();
+    const distance = Math.max(1, heroTrack.offsetHeight - innerHeight);
+    const target = Math.max(0, Math.min(1, -rect.top / distance));
+    heroProgress = reducedMotion.matches ? 0 : heroProgress + (target - heroProgress) * .16;
+    hero.style.setProperty('--hero-progress', heroProgress.toFixed(4));
+    const maxScroll = document.documentElement.scrollHeight - innerHeight;
+    $('.page-progress').style.transform = `scaleX(${maxScroll > 0 ? scrollY / maxScroll : 0})`;
+    header.classList.toggle('scrolled', scrollY > 45);
+    const approachRect = $('#approach').getBoundingClientRect();
+    header.classList.toggle('on-light', approachRect.top < 82 && approachRect.bottom > 82);
+    const closingRect = $('.closing-film').getBoundingClientRect();
+    if (!reducedMotion.matches && closingRect.top < innerHeight && closingRect.bottom > 0) {
+      const travel = (innerHeight * .5 - (closingRect.top + closingRect.height * .5)) * .12;
+      $('.parallax-image').style.transform = `translateY(${travel.toFixed(1)}px)`;
+    }
+    let activeSection = '';
+    ['about','work','approach','contact'].forEach(id => { if ($('#'+id).getBoundingClientRect().top < innerHeight * .45) activeSection = id; });
+    $$('.desktop-nav a').forEach(a => { if (a.hash === '#'+activeSection) a.setAttribute('aria-current','location'); else a.removeAttribute('aria-current'); });
+    if (!reducedMotion.matches && Math.abs(target - heroProgress) > .001) requestFrame();
+  }
+  function requestFrame() { if (!frameRequested) { frameRequested = true; requestAnimationFrame(updateScroll); } }
+  addEventListener('scroll',requestFrame,{passive:true});
+  addEventListener('resize',requestFrame);
+  requestFrame();
+
+  const menuButton = $('.menu-toggle');
+  function closeMenu() { menuButton.setAttribute('aria-expanded','false'); menuButton.setAttribute('aria-label','Open navigation'); $('#mobile-nav').hidden = true; }
+  menuButton.addEventListener('click', () => {
+    const open = menuButton.getAttribute('aria-expanded') !== 'true';
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    $('#mobile-nav').hidden = !open;
+  });
+  $$('#mobile-nav a').forEach(a => a.addEventListener('click',closeMenu));
+  addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+  document.addEventListener('click', event => { if (!header.contains(event.target)) closeMenu(); });
+  addEventListener('resize', () => { if (innerWidth > 700) closeMenu(); });
+
+  $$('.filter').forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    $$('.filter').forEach(b => { const active = b === button; b.classList.toggle('active',active); b.setAttribute('aria-pressed',String(active)); });
+    let visible = 0;
+    $$('.film-card').forEach(card => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.hidden = !show;
+      card.classList.add('visible');
+      if (show) visible++;
+      else { const video = $('.preview-video',card); video.pause(); $('.film-image',card).classList.remove('previewing'); }
+    });
+    $('.film-grid').classList.toggle('filtered',filter !== 'all');
+    $('#film-count').textContent = String(visible).padStart(2,'0');
+    requestFrame();
+  }));
+
+  $$('.film-image').forEach(button => {
+    const video = $('.preview-video',button);
+    button.addEventListener('pointerenter', event => {
+      if (reducedMotion.matches || event.pointerType === 'touch') return;
+      if (!video.getAttribute('src')) video.src = video.dataset.src;
+      video.play().then(() => { if (button.matches(':hover')) button.classList.add('previewing'); else video.pause(); }).catch(() => {});
+    });
+    const stopPreview = () => { video.pause(); button.classList.remove('previewing'); };
+    button.addEventListener('pointerleave',stopPreview);
+    button.addEventListener('blur',stopPreview);
+  });
+
+  function openDialog(dialog,trigger) {
+    closeMenu();
+    currentTrigger = trigger;
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+    heroVideo.pause();
+    $$('.preview-video').forEach(video => video.pause());
+  }
+  $$('[data-film]').forEach(button => button.addEventListener('click', () => {
+    const film = films[button.dataset.film];
+    if (!film) return;
+    $('#film-dialog-title').textContent = film.title;
+    $('#film-dialog-category').textContent = film.category;
+    $('#film-dialog-description').textContent = film.description;
+    $('#player-status').textContent = '';
+    player.src = film.src;
+    player.poster = film.poster;
+    openDialog(filmDialog,button);
+    player.play().catch(() => { $('#player-status').textContent = 'Press play to begin.'; });
+  }));
+  player.addEventListener('error', () => { if (player.getAttribute('src')) $('#player-status').textContent = 'The film could not load. Close it and try again.'; });
+  player.addEventListener('playing', () => { $('#player-status').textContent = ''; });
+  $$('[data-close]').forEach(button => button.addEventListener('click', () => $('#'+button.dataset.close).close()));
+  $$('dialog').forEach(dialog => {
+    dialog.addEventListener('click',event => {
+      if (event.target !== dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      document.body.style.overflow = '';
+      if (dialog === filmDialog) { player.pause(); player.removeAttribute('src'); player.load(); }
+      manageHeroPlayback();
+      if (currentTrigger?.isConnected) currentTrigger.focus({preventScroll:true});
+      currentTrigger = null;
+    });
+  });
+  $('#credits-open').addEventListener('click',event => openDialog($('#credits-dialog'),event.currentTarget));
+  $('#enquiry-open').addEventListener('click',event => openDialog($('#enquiry-dialog'),event.currentTarget));
+
+  $('#enquiry-form').addEventListener('submit',event => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    $('#enquiry-output').value = [
+      'FILM PROJECT ENQUIRY', '',
+      `Name: ${String(data.get('name')).trim()}`,
+      `Email: ${String(data.get('email')).trim()}`,
+      `Project: ${data.get('type')}`,
+      `Timeframe: ${String(data.get('date')).trim() || 'To be discussed'}`, '',
+      'The idea:', String(data.get('message')).trim()
+    ].join('\n');
+    $('#enquiry-form').hidden = true;
+    $('#enquiry-result').hidden = false;
+    $('.enquiry-intro').hidden = true;
+    $('#copy-status').textContent = '';
+    $('#copy-enquiry').focus();
+  });
+  $('#edit-enquiry').addEventListener('click', () => {
+    $('#enquiry-form').hidden = false;
+    $('#enquiry-result').hidden = true;
+    $('.enquiry-intro').hidden = false;
+    $('input[name="name"]').focus();
+  });
+  $('#copy-enquiry').addEventListener('click',async () => {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText($('#enquiry-output').value);
+      $('#copy-status').textContent = 'Copied. Your enquiry is ready to share.';
+    } catch {
+      $('#enquiry-output').focus(); $('#enquiry-output').select();
+      $('#copy-status').textContent = 'Select and copy the text above, or use Download .txt.';
+    }
+  });
+  $('#download-enquiry').addEventListener('click', () => {
+    const file = new Blob([$('#enquiry-output').value],{type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(file);
+    const link = document.createElement('a');
+    link.href = url; link.download = 'film-project-enquiry.txt';
+    document.body.appendChild(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url),1000);
+    $('#copy-status').textContent = 'Your enquiry download is ready.';
+  });
+  $('#year').textContent = new Date().getFullYear();
+})();
+
+  </script>
+</body>
+</html>
 
